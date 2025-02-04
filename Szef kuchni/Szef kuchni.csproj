@@ -1,0 +1,1689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A8819A6E-DFD6-46BC-962C-6E8397B36962}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Szef_kuchni</RootNamespace>
+    <AssemblyName>Szef kuchni</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.commons.9.0.0\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfua, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.pdfua.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Sqlite, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Sqlite.Core.9.0.0\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.9.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.9.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.9.0.0\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.9.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.9.0.0\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.9.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.1.10.2445, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.2.1.10\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.1.10.2445, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.2.1.10\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.1.10.2445, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.1.10\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.119.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.119.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.119.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.9.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.0\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.0\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\ObservableObject.cs" />
+    <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MVVM\View\FavouriteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\FilterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\HistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\IngredientsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\RecipeDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\SearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\StartCookingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\NavigationButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\TextBoxTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MVVM\Model\Category.cs" />
+    <Compile Include="MVVM\Model\Datahelper.cs" />
+    <Compile Include="MVVM\Model\Ingredients.cs" />
+    <Compile Include="MVVM\Model\Recipe.cs" />
+    <Compile Include="MVVM\Model\Step.cs" />
+    <Compile Include="MVVM\Model\Tag.cs" />
+    <Compile Include="MVVM\ViewModel\FavouriteViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\FilterViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\HistoryViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\IngredientsWindowViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\RecipeDetailsWindowViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SearchViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\StartCookingWindowViewModel.cs" />
+    <Compile Include="MVVM\View\FavouriteView.xaml.cs">
+      <DependentUpon>FavouriteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\FilterView.xaml.cs">
+      <DependentUpon>FilterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\HistoryView.xaml.cs">
+      <DependentUpon>HistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\IngredientsWindow.xaml.cs">
+      <DependentUpon>IngredientsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\RecipeDetailsWindow.xaml.cs">
+      <DependentUpon>RecipeDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\StartCookingWindow.xaml.cs">
+      <DependentUpon>StartCookingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="recipes.db" />
+    <Resource Include="Fonts\Poppins-Regular.ttf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\12-potraw-wigilijnych-2-768x1151.jpg" />
+    <Resource Include="Images\141-768x1152.jpg" />
+    <Resource Include="Images\17620319_1306553816061167_6715466299740349061_o-768x1151.jpg" />
+    <Resource Include="Images\20150917_153512nn1-768x576.jpg" />
+    <Resource Include="Images\2skladnikowe-768x1152.jpg" />
+    <Resource Include="Images\3bit5-768x1152.jpg" />
+    <Resource Include="Images\amoniaczki_12.jpg" />
+    <Resource Include="Images\andrut.jpg" />
+    <Resource Include="Images\arthotel16-768x1024.jpg" />
+    <Resource Include="Images\aspirynki_16-1.jpg" />
+    <Resource Include="Images\babeczki-z-budyniem_1.jpg" />
+    <Resource Include="Images\babeczki1-768x1152.jpg" />
+    <Resource Include="Images\babeczki10-768x576.jpg" />
+    <Resource Include="Images\babeczkibanoffi1-768x1024.jpg" />
+    <Resource Include="Images\babeczkirozyczkowe3-768x1024.jpg" />
+    <Resource Include="Images\babeczki_2.jpg" />
+    <Resource Include="Images\babka-768x1152.jpg" />
+    <Resource Include="Images\babka-cytrynowa_17.jpg" />
+    <Resource Include="Images\babka-drozdzowa_4-768x1151.jpg" />
+    <Resource Include="Images\babka-pomaranczowa_11.jpg" />
+    <Resource Include="Images\babka-wielkanocna_4-768x1151.jpg" />
+    <Resource Include="Images\babka-z-mascarpone_6.jpg" />
+    <Resource Include="Images\babka-ziemniaczana-_9.jpg" />
+    <Resource Include="Images\babka-_19.jpg" />
+    <Resource Include="Images\babka11.jpg" />
+    <Resource Include="Images\bagietka-768x1152.jpg" />
+    <Resource Include="Images\bagietki-czosnkowe_15.jpg" />
+    <Resource Include="Images\bananowa-krowka.jpg" />
+    <Resource Include="Images\bananowakrowka_3.jpg" />
+    <Resource Include="Images\bananowe-768x1152.jpg" />
+    <Resource Include="Images\bananowe6-768x1151.jpg" />
+    <Resource Include="Images\bananowiec2-768x1152.jpg" />
+    <Resource Include="Images\bananowiecbezpieczenia_1.jpg" />
+    <Resource Include="Images\banany-w-ciescie_5.jpg" />
+    <Resource Include="Images\bangkok-thailand-tor-kor-food-market-29251120-768x499.jpg" />
+    <Resource Include="Images\bangkok9-768x1361.jpg" />
+    <Resource Include="Images\banjaluka2-768x1152.jpg" />
+    <Resource Include="Images\barszcz3-768x1152.jpg" />
+    <Resource Include="Images\barszcz_7.jpg" />
+    <Resource Include="Images\batoniki5-768x1152.jpg" />
+    <Resource Include="Images\batoniki9-768x1024.jpg" />
+    <Resource Include="Images\batonikiowsiane3-768x1152.jpg" />
+    <Resource Include="Images\bernard12-768x1152.jpg" />
+    <Resource Include="Images\beza-pavlova-_9.jpg" />
+    <Resource Include="Images\bezy_9.jpg" />
+    <Resource Include="Images\bialka7-2-768x512.jpg" />
+    <Resource Include="Images\bialy-snickers3.jpg" />
+    <Resource Include="Images\bigos-wigilijny-2-768x1151.jpg" />
+    <Resource Include="Images\bigos2-768x1151.jpg" />
+    <Resource Include="Images\bigos_5.jpg" />
+    <Resource Include="Images\bistrobeta5-768x1152.jpg" />
+    <Resource Include="Images\biszkopt-kakaowy-9-768x1151.jpg" />
+    <Resource Include="Images\biszkopt-orzechowy-14-768x1151.jpg" />
+    <Resource Include="Images\biszkopt-z-truskawkami_8.jpg" />
+    <Resource Include="Images\biszkopt.jpg" />
+    <Resource Include="Images\bita-smietana_8.jpg" />
+    <Resource Include="Images\bitki-wieprzowe_5.jpg" />
+    <Resource Include="Images\bitki-wolowe_6.jpg" />
+    <Resource Include="Images\blender_11.jpg" />
+    <Resource Include="Images\blok-czekoladowy_12.jpg" />
+    <Resource Include="Images\borowkowa-chmurka-15.jpg" />
+    <Resource Include="Images\bounty9-768x1152.jpg" />
+    <Resource Include="Images\brownie-768x1151.jpg" />
+    <Resource Include="Images\brownie-bounty_2-768x1151.jpg" />
+    <Resource Include="Images\brownie-z-fasoli_7.jpg" />
+    <Resource Include="Images\brownie-z-malinami12.jpg" />
+    <Resource Include="Images\brownie.jpg" />
+    <Resource Include="Images\brownie_5.jpg" />
+    <Resource Include="Images\brownie_6.jpg" />
+    <Resource Include="Images\bruschetta-z-burrata-1-768x1151.jpg" />
+    <Resource Include="Images\bruschetta-z-gruszka_7.jpg" />
+    <Resource Include="Images\bruschetta2-768x1152.jpg" />
+    <Resource Include="Images\budyn-jaglany_4.jpg" />
+    <Resource Include="Images\budyn-waniliowy_9.jpg" />
+    <Resource Include="Images\budynioweciasteczka1-768x1152.jpg" />
+    <Resource Include="Images\buleczki-cynamonowe_11.jpg" />
+    <Resource Include="Images\buleczki-drozdzowe_1.jpg" />
+    <Resource Include="Images\buleczki-maslane_9-768x1151.jpg" />
+    <Resource Include="Images\buleczki-mleczne_11.jpg" />
+    <Resource Include="Images\buleczki-pszenne.jpg" />
+    <Resource Include="Images\buleczki-z-dzemem_13.jpg" />
+    <Resource Include="Images\buleczki-z-dzemem_5-768x1151.jpg" />
+    <Resource Include="Images\buleczki-z-jagodami_8.jpg" />
+    <Resource Include="Images\buleczki-z-nutella_5.jpg" />
+    <Resource Include="Images\buleczki-z-pistacjami_13.jpg" />
+    <Resource Include="Images\buleczki-z-serem_5.jpg" />
+    <Resource Include="Images\buleczki2-768x1152.jpg" />
+    <Resource Include="Images\buleczki9-768x576.jpg" />
+    <Resource Include="Images\buleczkiczosnkowo-serowe4-768x1152.jpg" />
+    <Resource Include="Images\buleczkizpasztetem3-768x1152.jpg" />
+    <Resource Include="Images\bulki-czosnkowe_8.jpg" />
+    <Resource Include="Images\bulki-do-burgerow-768x1150.jpg" />
+    <Resource Include="Images\bulki-do-burgerow_2-768x1150.jpg" />
+    <Resource Include="Images\bulki-do-hot-dogow_6-768x1151.jpg" />
+    <Resource Include="Images\bulki-kebab-gyros-13-768x1151.jpg" />
+    <Resource Include="Images\bulki-orkiszowe_11.jpg" />
+    <Resource Include="Images\bulki-pszenne_24.jpg" />
+    <Resource Include="Images\bulki.jpg" />
+    <Resource Include="Images\burgerek_7.jpg" />
+    <Resource Include="Images\calzone4-768x1024.jpg" />
+    <Resource Include="Images\calzone5-768x1152.jpg" />
+    <Resource Include="Images\calzone_15.jpg" />
+    <Resource Include="Images\camembert-z-grilla.jpg" />
+    <Resource Include="Images\caprese_1.jpg" />
+    <Resource Include="Images\carbonara_4.jpg" />
+    <Resource Include="Images\cebularze_4-768x1151.jpg" />
+    <Resource Include="Images\Cebulowe-paluchy-z-boczkiem-13-768x1151.jpg" />
+    <Resource Include="Images\chalka_13.jpg" />
+    <Resource Include="Images\chicken-burger_13.jpg" />
+    <Resource Include="Images\chili-con-carne_5.jpg" />
+    <Resource Include="Images\chleb-na-drozdzach.jpg" />
+    <Resource Include="Images\chleb-orkiszowy_7-1.jpg" />
+    <Resource Include="Images\chleb-pszenny-11-768x1151.jpg" />
+    <Resource Include="Images\chleb-pszenny_1.jpg" />
+    <Resource Include="Images\chleb-z-garnka_10.jpg" />
+    <Resource Include="Images\chleb-z-garnka_2-1.jpg" />
+    <Resource Include="Images\chleb-z-suszonymi-pomidorami_1.jpg" />
+    <Resource Include="Images\chlebek-768x1151.jpg" />
+    <Resource Include="Images\chlebek-bananowy_3.jpg" />
+    <Resource Include="Images\chlebek-ziolowy_13.jpg" />
+    <Resource Include="Images\chlebek3-768x1152.jpg" />
+    <Resource Include="Images\chlebekpizza2-768x1152.jpg" />
+    <Resource Include="Images\chlebk-odrywany-z-jablkami-12-768x1151.jpg" />
+    <Resource Include="Images\chrupiace-roladki-z-tortilli_5.jpg" />
+    <Resource Include="Images\chrzan5.jpg" />
+    <Resource Include="Images\churros_11.jpg" />
+    <Resource Include="Images\ciasta-na-boze-narodzenie.jpg" />
+    <Resource Include="Images\ciasta-na-wielkanoc-1-2.jpg" />
+    <Resource Include="Images\ciasta-z-truskawkami-768x1151.jpg" />
+    <Resource Include="Images\ciasteczka-768x1152.jpg" />
+    <Resource Include="Images\ciasteczka-budyniowe_6.jpg" />
+    <Resource Include="Images\ciasteczka-cynamonowe_9.jpg" />
+    <Resource Include="Images\ciasteczka-korzenne_4.jpg" />
+    <Resource Include="Images\ciasteczka-maslane_9.jpg" />
+    <Resource Include="Images\ciasteczka-na-swieta-1.jpg" />
+    <Resource Include="Images\ciasteczka-orzechowe_5.jpg" />
+    <Resource Include="Images\ciasteczka-owsiane-z-bananem-5-768x1151.jpg" />
+    <Resource Include="Images\ciasteczka-owsiane-_7.jpg" />
+    <Resource Include="Images\ciasteczka-swiateczne_15.jpg" />
+    <Resource Include="Images\ciasteczka-wielkanocne_12-768x1151.jpg" />
+    <Resource Include="Images\ciasteczka-wielkanocne_7-768x1151.jpg" />
+    <Resource Include="Images\ciasteczka-z-jablkami_7.jpg" />
+    <Resource Include="Images\ciasteczka-ze-slonecznikiem_9.jpg" />
+    <Resource Include="Images\ciasteczka1-1-768x1152.jpg" />
+    <Resource Include="Images\ciasteczka1-768x1024.jpg" />
+    <Resource Include="Images\ciasteczka1-768x1151.jpg" />
+    <Resource Include="Images\ciasteczka2-1-768x1152.jpg" />
+    <Resource Include="Images\ciasteczka2-768x1152.jpg" />
+    <Resource Include="Images\ciasteczka3-768x1152.jpg" />
+    <Resource Include="Images\ciasteczka4-768x1152.jpg" />
+    <Resource Include="Images\ciasteczka6-768x1151.jpg" />
+    <Resource Include="Images\ciasteczka7-768x1024.jpg" />
+    <Resource Include="Images\ciasteczkaa_2.jpg" />
+    <Resource Include="Images\ciasteczkadyniowe42-768x1024.jpg" />
+    <Resource Include="Images\ciasteczkakokosowe5-768x576.jpg" />
+    <Resource Include="Images\ciasteczkapomaranczowe3-768x1024.jpg" />
+    <Resource Include="Images\ciasteczkazczekoladaorzechowa5-768x1024.jpg" />
+    <Resource Include="Images\ciasteczka_10.jpg" />
+    <Resource Include="Images\ciasteczka_21.jpg" />
+    <Resource Include="Images\ciasteczka_4.jpg" />
+    <Resource Include="Images\ciasteczka_7.jpg" />
+    <Resource Include="Images\ciastka-owsiane_12.jpg" />
+    <Resource Include="Images\ciastka-z-jablkami_9.jpg" />
+    <Resource Include="Images\ciastka-z-maslem-orzechowym_6.jpg" />
+    <Resource Include="Images\ciastka-z-pistacjami_15.jpg" />
+    <Resource Include="Images\ciastka1-768x1152.jpg" />
+    <Resource Include="Images\ciastka2-768x1152.jpg" />
+    <Resource Include="Images\ciastka3-768x1152.jpg" />
+    <Resource Include="Images\ciastka5-768x1152.jpg" />
+    <Resource Include="Images\ciastka7-768x1024.jpg" />
+    <Resource Include="Images\ciastko1-768x1152.jpg" />
+    <Resource Include="Images\ciastkozesliwkami2-768x1151.jpg" />
+    <Resource Include="Images\ciasto-3-bit_1.jpg" />
+    <Resource Include="Images\ciasto-bananowe_10.jpg" />
+    <Resource Include="Images\ciasto-bez-pieczenia7.jpg" />
+    <Resource Include="Images\ciasto-bialy-lion_7.jpg" />
+    <Resource Include="Images\ciasto-bialy-michalek_15.jpg" />
+    <Resource Include="Images\ciasto-bialy-michalek_18.jpg" />
+    <Resource Include="Images\ciasto-cytrynowe_13-768x1151.jpg" />
+    <Resource Include="Images\ciasto-czekoladowe-na-maslance-7-768x1151.jpg" />
+    <Resource Include="Images\ciasto-czekoladowe-_12.jpg" />
+    <Resource Include="Images\ciasto-czekoladowe-_4.jpg" />
+    <Resource Include="Images\ciasto-czekoladowe_2.jpg" />
+    <Resource Include="Images\ciasto-czekoladowe_21.jpg" />
+    <Resource Include="Images\ciasto-drozdzowe-z-owocami.jpg" />
+    <Resource Include="Images\ciasto-drozdzowe_10-768x1151.jpg" />
+    <Resource Include="Images\ciasto-dyniowe_13.jpg" />
+    <Resource Include="Images\ciasto-francuskie8.jpg" />
+    <Resource Include="Images\ciasto-jogurtowe.jpg" />
+    <Resource Include="Images\ciasto-jogurtowe5-768x1152.jpg" />
+    <Resource Include="Images\ciasto-jogurtowe_4.jpg" />
+    <Resource Include="Images\ciasto-jogurtowe_5.jpg" />
+    <Resource Include="Images\ciasto-krowka_8-1.jpg" />
+    <Resource Include="Images\ciasto-kruche-11.jpg" />
+    <Resource Include="Images\ciasto-lesny-mech_2-768x1151.jpg" />
+    <Resource Include="Images\ciasto-marchewkowe_12.jpg" />
+    <Resource Include="Images\ciasto-marchewkowe_6.jpg" />
+    <Resource Include="Images\ciasto-maxi-king_12.jpg" />
+    <Resource Include="Images\ciasto-michalek_8.jpg" />
+    <Resource Include="Images\ciasto-murzynek_10.jpg" />
+    <Resource Include="Images\ciasto-na-maslance_19.jpg" />
+    <Resource Include="Images\ciasto-na-pierogi_1.jpg" />
+    <Resource Include="Images\ciasto-piernik_3-1.jpg" />
+    <Resource Include="Images\ciasto-pomaranczowe_13.jpg" />
+    <Resource Include="Images\ciasto-salceson_5-768x1151.jpg" />
+    <Resource Include="Images\ciasto-shrek_12.jpg" />
+    <Resource Include="Images\ciasto-smerfetka_6.jpg" />
+    <Resource Include="Images\ciasto-snickers-bez-pieczenia-_14.jpg" />
+    <Resource Include="Images\ciasto-ucierane_9-1-768x1151.jpg" />
+    <Resource Include="Images\ciasto-weganskie_11.jpg" />
+    <Resource Include="Images\ciasto-wigilijne_19.jpg" />
+    <Resource Include="Images\ciasto-wisniowiec_12.jpg" />
+    <Resource Include="Images\ciasto-z-biala-czekolada12.jpg" />
+    <Resource Include="Images\ciasto-z-borowkami_9.jpg" />
+    <Resource Include="Images\ciasto-z-brzoskwiniami_13.jpg" />
+    <Resource Include="Images\ciasto-z-budyniem_5.jpg" />
+    <Resource Include="Images\ciasto-z-dyni_5.jpg" />
+    <Resource Include="Images\ciasto-z-gruszkami-14-768x1151.jpg" />
+    <Resource Include="Images\ciasto-z-jablkami-13-1-768x1151.jpg" />
+    <Resource Include="Images\ciasto-z-jablkami_8.jpg" />
+    <Resource Include="Images\ciasto-z-jagodami_11.jpg" />
+    <Resource Include="Images\ciasto-z-jezynami-8-768x1151.jpg" />
+    <Resource Include="Images\ciasto-z-malinami_19.jpg" />
+    <Resource Include="Images\ciasto-z-malinami_5-3.jpg" />
+    <Resource Include="Images\ciasto-z-malinami_7.jpg" />
+    <Resource Include="Images\ciasto-z-mascarpone-_16.jpg" />
+    <Resource Include="Images\ciasto-z-morelami_14.jpg" />
+    <Resource Include="Images\ciasto-z-porzeczkami_16.jpg" />
+    <Resource Include="Images\ciasto-z-rabarbarem101-1.jpg" />
+    <Resource Include="Images\ciasto-z-truskawkami-i-galaretka_14.jpg" />
+    <Resource Include="Images\ciasto-z-truskawkami_12.jpg" />
+    <Resource Include="Images\ciasto-z-truskawkami_8.jpg" />
+    <Resource Include="Images\ciasto-z-wisniami_6.jpg" />
+    <Resource Include="Images\ciasto-ze-sliwkami-13-768x1151.jpg" />
+    <Resource Include="Images\ciasto-ze-sliwkami_12.jpg" />
+    <Resource Include="Images\ciasto-ze-sliwkami_2.jpg" />
+    <Resource Include="Images\ciasto.jpg" />
+    <Resource Include="Images\ciasto1-768x1151.jpg" />
+    <Resource Include="Images\ciasto1-768x1152.jpg" />
+    <Resource Include="Images\ciasto3-768x1151.jpg" />
+    <Resource Include="Images\ciasto3-768x1152.jpg" />
+    <Resource Include="Images\ciasto333.jpg" />
+    <Resource Include="Images\ciasto5-768x1152.jpg" />
+    <Resource Include="Images\ciastomarchewkowe5-768x1152.jpg" />
+    <Resource Include="Images\ciastopistacjowe7-768x1152.jpg" />
+    <Resource Include="Images\ciastotiramisu_1-2.jpg" />
+    <Resource Include="Images\ciastoucierane-768x576.jpg" />
+    <Resource Include="Images\ciastozjablkami2-768x1151.jpg" />
+    <Resource Include="Images\ciastozjablkami4-768x1024.jpg" />
+    <Resource Include="Images\ciastozyrafa-768x1024.jpg" />
+    <Resource Include="Images\ciatsa-768x1151.jpg" />
+    <Resource Include="Images\co-zrobic-z-bialek.jpg" />
+    <Resource Include="Images\creme-brulee.jpg" />
+    <Resource Include="Images\crockpot1-768x1151.jpg" />
+    <Resource Include="Images\cuba-libre_1.jpg" />
+    <Resource Include="Images\cukinia-faszerowana_6.jpg" />
+    <Resource Include="Images\cyckimurzyn2-768x1024.jpg" />
+    <Resource Include="Images\cynamonki_5.jpg" />
+    <Resource Include="Images\cynamonowebuleczki6-768x1152.jpg" />
+    <Resource Include="Images\cynamonoweplacuszki2-768x1152.jpg" />
+    <Resource Include="Images\cytrynowe3-768x1151.jpg" />
+    <Resource Include="Images\czekoladowe-pancakes2-768x1152.jpg" />
+    <Resource Include="Images\czekoladowe2-768x1151.jpg" />
+    <Resource Include="Images\czosnkowy1-768x1152.jpg" />
+    <Resource Include="Images\deser-768x1152.jpg" />
+    <Resource Include="Images\deser-jogurtowo-truskawkowy3-768x1152.jpg" />
+    <Resource Include="Images\deser-kinder-country_6.jpg" />
+    <Resource Include="Images\deser-kinder11.jpg" />
+    <Resource Include="Images\deser-z-truskawkami_1.jpg" />
+    <Resource Include="Images\deser1-768x1152.jpg" />
+    <Resource Include="Images\deser3-768x1152.jpg" />
+    <Resource Include="Images\deser5-768x1152.jpg" />
+    <Resource Include="Images\deserbanankiwi1-768x576.jpg" />
+    <Resource Include="Images\deserczekoladowy1-768x1152.jpg" />
+    <Resource Include="Images\deserki2-768x1123.jpg" />
+    <Resource Include="Images\deserki4-768x1024.jpg" />
+    <Resource Include="Images\domowy-hamburger_16.jpg" />
+    <Resource Include="Images\donuts_5.jpg" />
+    <Resource Include="Images\drobiowekotleciki-768x1151.jpg" />
+    <Resource Include="Images\drobioweroladki2-768x1152.jpg" />
+    <Resource Include="Images\drozdze.jpg" />
+    <Resource Include="Images\drozdzowe3-768x1151.jpg" />
+    <Resource Include="Images\drozdzowezawijaski2-768x1152.jpg" />
+    <Resource Include="Images\drozdzowka2-768x1152.jpg" />
+    <Resource Include="Images\drozdzowka6-768x1152.jpg" />
+    <Resource Include="Images\drozdzowka7-768x1152.jpg" />
+    <Resource Include="Images\drozdzowki-z-budyniem-8-768x1151.jpg" />
+    <Resource Include="Images\drozdzowki-z-budyniem_2-768x1151.jpg" />
+    <Resource Include="Images\drozdzowki-z-jablkami_4-768x1151.jpg" />
+    <Resource Include="Images\drozdzowki-z-makiem_24.jpg" />
+    <Resource Include="Images\drozdzowki-z-malinami_8.jpg" />
+    <Resource Include="Images\drozdzowki-z-serem_2.jpg" />
+    <Resource Include="Images\drozdzowki-z-serem_9.jpg" />
+    <Resource Include="Images\drozdzowki-z-truskawkami_8.jpg" />
+    <Resource Include="Images\drozdzowki-ze-sliwkami_10.jpg" />
+    <Resource Include="Images\drozdzowki-ze-sliwkami_21.jpg" />
+    <Resource Include="Images\drozdzowki11-768x1151.jpg" />
+    <Resource Include="Images\drozdzowki2-768x1151.jpg" />
+    <Resource Include="Images\drozdzowki2-768x1152.jpg" />
+    <Resource Include="Images\drozdzowki6-768x1152.jpg" />
+    <Resource Include="Images\drozdzowkizziemniakami5-768x1024.jpg" />
+    <Resource Include="Images\drozdzowki_8-1.jpg" />
+    <Resource Include="Images\drozdzowkoweswinki8-768x576.jpg" />
+    <Resource Include="Images\drozdzowyzawijaniec1-768x1152.jpg" />
+    <Resource Include="Images\DSCN2601kn-768x576.jpg" />
+    <Resource Include="Images\DSCN3505n-scaled-1-768x576.jpg" />
+    <Resource Include="Images\DSCN3910-scaled-1-768x576.jpg" />
+    <Resource Include="Images\DSC_4188-768x1152.jpg" />
+    <Resource Include="Images\DSC_4322-768x1152.jpg" />
+    <Resource Include="Images\DSC_4323-768x1152.jpg" />
+    <Resource Include="Images\dutch-baby_2.jpg" />
+    <Resource Include="Images\dutch-baby_4.jpg" />
+    <Resource Include="Images\dynia5-768x1152.jpg" />
+    <Resource Include="Images\dyniowe-cynamonki_17.jpg" />
+    <Resource Include="Images\dynioweplacuszki1-768x1151.jpg" />
+    <Resource Include="Images\dyniowy-chlebek10-768x1151.jpg" />
+    <Resource Include="Images\dzem-z-dyni_4.jpg" />
+    <Resource Include="Images\dzem-z-jezyn_9.jpg" />
+    <Resource Include="Images\dzem-z-porzeczek_2.jpg" />
+    <Resource Include="Images\dzem-z-truskawek_1.jpg" />
+    <Resource Include="Images\dzemporzeczkowy1-768x576.jpg" />
+    <Resource Include="Images\dzem_6.jpg" />
+    <Resource Include="Images\eklerki_16.jpg" />
+    <Resource Include="Images\faledunaju101-768x1024.jpg" />
+    <Resource Include="Images\faszerowana-papryka.jpg" />
+    <Resource Include="Images\faszerowane-bataty_13.jpg" />
+    <Resource Include="Images\faworki-768x1151.jpg" />
+    <Resource Include="Images\faworki_4.jpg" />
+    <Resource Include="Images\fit-brownie7.jpg" />
+    <Resource Include="Images\fit-nalesniki-3.jpg" />
+    <Resource Include="Images\fit-sernik_4.jpg" />
+    <Resource Include="Images\fitbrownie-768x1151.jpg" />
+    <Resource Include="Images\fitczekoladka4-768x1151.jpg" />
+    <Resource Include="Images\fitkoktajl2-768x1151.jpg" />
+    <Resource Include="Images\fitkoktajl2-768x1152.jpg" />
+    <Resource Include="Images\fitkoktajl3.jpg" />
+    <Resource Include="Images\fitleczo1-768x1152.jpg" />
+    <Resource Include="Images\fitptasie2-768x1151.jpg" />
+    <Resource Include="Images\fitrisotto1-768x1152.jpg" />
+    <Resource Include="Images\fitsernik_5.jpg" />
+    <Resource Include="Images\fitszarlotka2-768x1152.jpg" />
+    <Resource Include="Images\fittarta1-768x1152.jpg" />
+    <Resource Include="Images\fondant4-768x1152.jpg" />
+    <Resource Include="Images\frytki-z-batatow_4.jpg" />
+    <Resource Include="Images\galaretkowiec1-768x1152.jpg" />
+    <Resource Include="Images\gofry-1-768x1152.jpg" />
+    <Resource Include="Images\gofry-bananowe-5-768x1151.jpg" />
+    <Resource Include="Images\gofry12.jpg" />
+    <Resource Include="Images\gofry4-768x1152.jpg" />
+    <Resource Include="Images\gofry6-768x1152.jpg" />
+    <Resource Include="Images\golabki-768x1151.jpg" />
+    <Resource Include="Images\golabki-z-ryzem_19.jpg" />
+    <Resource Include="Images\golabki1-768x1152.jpg" />
+    <Resource Include="Images\gora-lodowa_18.jpg" />
+    <Resource Include="Images\goraca-czekolada_2.jpg" />
+    <Resource Include="Images\goracaczekolada1-768x1151.jpg" />
+    <Resource Include="Images\goracaczekolada1-768x1152.jpg" />
+    <Resource Include="Images\goralodowa5-768x1152.jpg" />
+    <Resource Include="Images\grochowka1-768x1152.jpg" />
+    <Resource Include="Images\grochowka_5.jpg" />
+    <Resource Include="Images\grzybowa5-768x1151.jpg" />
+    <Resource Include="Images\guacamole-1-768x1151.jpg" />
+    <Resource Include="Images\gulasz-po-wegiersku_1-1.jpg" />
+    <Resource Include="Images\gulasz-wolowy_12.jpg" />
+    <Resource Include="Images\gulasz-z-indyka10.jpg" />
+    <Resource Include="Images\gulasz5-768x1152.jpg" />
+    <Resource Include="Images\gwiazda-makowa_16.jpg" />
+    <Resource Include="Images\hamburger2-768x1151.jpg" />
+    <Resource Include="Images\hamburgerki3-768x1152.jpg" />
+    <Resource Include="Images\hamburgery1-768x1152.jpg" />
+    <Resource Include="Images\herbatka3-768x1152.jpg" />
+    <Resource Include="Images\hotel-768x1152.jpg" />
+    <Resource Include="Images\hotelmercury8-768x1024.jpg" />
+    <Resource Include="Images\hummus_8.jpg" />
+    <Resource Include="Images\ibis22-768x1024.jpg" />
+    <Resource Include="Images\ibis4-768x1024.jpg" />
+    <Resource Include="Images\IMG_3159-scaled-1-768x1024.jpg" />
+    <Resource Include="Images\imprezowe-lodeczki-6-768x1151.jpg" />
+    <Resource Include="Images\imprezowe-rollsy11.jpg" />
+    <Resource Include="Images\indyjskie-samosy_12.jpg" />
+    <Resource Include="Images\instant-pot_21.jpg" />
+    <Resource Include="Images\jablecznik-4-768x1151.jpg" />
+    <Resource Include="Images\jablecznik-straciatella_4-1.jpg" />
+    <Resource Include="Images\jablecznik7-768x1024.jpg" />
+    <Resource Include="Images\jablka-w-ciescie_7.jpg" />
+    <Resource Include="Images\jablkanaszarlotke2-768x1152.jpg" />
+    <Resource Include="Images\jablkawciescie3-768x1151.jpg" />
+    <Resource Include="Images\jablko-pieczone1-768x1152.jpg" />
+    <Resource Include="Images\jaglanerafaello3-768x1152.jpg" />
+    <Resource Include="Images\jagodowa5-768x1152.jpg" />
+    <Resource Include="Images\jagodzianki_9.jpg" />
+    <Resource Include="Images\jajecznica-z-kurkami-6-768x1151.jpg" />
+    <Resource Include="Images\jajka-faszerowane-768x1151.jpg" />
+    <Resource Include="Images\jajka-faszerowane-pieczarkami_22.jpg" />
+    <Resource Include="Images\jajka-faszerowane-_8.jpg" />
+    <Resource Include="Images\jajka-faszerowane_10-1.jpg" />
+    <Resource Include="Images\jajka-faszerowane_11-768x1151.jpg" />
+    <Resource Include="Images\jajka-faszerowane_3-768x1151.jpg" />
+    <Resource Include="Images\jajka-w-sosie-tatarskim_6.jpg" />
+    <Resource Include="Images\jajka-wielkanocne.jpg" />
+    <Resource Include="Images\jajka11.jpg" />
+    <Resource Include="Images\jajka2-768x1152.jpg" />
+    <Resource Include="Images\jajka4-1.jpg" />
+    <Resource Include="Images\jak-ugotowac-kalafior_2.jpg" />
+    <Resource Include="Images\jogurtowe15.jpg" />
+    <Resource Include="Images\jogurtoweztruskawkami4-768x1152.jpg" />
+    <Resource Include="Images\kabanosywciescie3-768x1024.jpg" />
+    <Resource Include="Images\kajzerki10-768x1152.jpg" />
+    <Resource Include="Images\kajzerki_11.jpg" />
+    <Resource Include="Images\kajzerki_7.jpg" />
+    <Resource Include="Images\kakaoweplacuszki3-768x1152.jpg" />
+    <Resource Include="Images\kalafior-w-panierce_11.jpg" />
+    <Resource Include="Images\kanapeczki-imprezowe_11.jpg" />
+    <Resource Include="Images\kanapkazpeppa3-768x1024.jpg" />
+    <Resource Include="Images\kapsalon_8.jpg" />
+    <Resource Include="Images\karkowka-po-cygansku_14.jpg" />
+    <Resource Include="Images\karkowka-w-sosie-pieczarkowym-6-768x1151.jpg" />
+    <Resource Include="Images\karkowka2-768x1151.jpg" />
+    <Resource Include="Images\karkowka6-768x1152.jpg" />
+    <Resource Include="Images\karkowkanaslodko3-768x1024.jpg" />
+    <Resource Include="Images\karkowka_8.jpg" />
+    <Resource Include="Images\karkowka_9.jpg" />
+    <Resource Include="Images\karp3-768x1151.jpg" />
+    <Resource Include="Images\karpatka11.jpg" />
+    <Resource Include="Images\kaszotto1-768x1152.jpg" />
+    <Resource Include="Images\kawa-mrozona_4-1-768x1151.jpg" />
+    <Resource Include="Images\kawa_10.jpg" />
+    <Resource Include="Images\kieszonki8-768x1152.jpg" />
+    <Resource Include="Images\kinder-bueno-22-768x1151.jpg" />
+    <Resource Include="Images\kinder-country_24.jpg" />
+    <Resource Include="Images\klopsiki1-768x1152.jpg" />
+    <Resource Include="Images\knedlekakaowe4-768x1152.jpg" />
+    <Resource Include="Images\kofty_3.jpg" />
+    <Resource Include="Images\kokosanki_4.jpg" />
+    <Resource Include="Images\kokosoweciasteczka4-768x576.jpg" />
+    <Resource Include="Images\koktajl-768x1152.jpg" />
+    <Resource Include="Images\koktajl-bananowy.jpg" />
+    <Resource Include="Images\koktajl-mlecznotruskawkowy1-768x1152.jpg" />
+    <Resource Include="Images\koktajl41-768x1024.jpg" />
+    <Resource Include="Images\koktajl7-768x1152.jpg" />
+    <Resource Include="Images\koktajlananasowy1-768x1024.jpg" />
+    <Resource Include="Images\koktajlzburaka1-768x1152.jpg" />
+    <Resource Include="Images\koktajl_6.jpg" />
+    <Resource Include="Images\koktal-z-jarmuzu_7.jpg" />
+    <Resource Include="Images\kolacja2-768x1024.jpg" />
+    <Resource Include="Images\kompot-z-jablek_6.jpg" />
+    <Resource Include="Images\kompot-z-rabarbaru3-1.jpg" />
+    <Resource Include="Images\kompot2-768x1151.jpg" />
+    <Resource Include="Images\kompot_3.jpg" />
+    <Resource Include="Images\konkurs-768x512.jpg" />
+    <Resource Include="Images\Konkurs-grill-henryk-kania-scaled-1-768x644.jpg" />
+    <Resource Include="Images\Konkurs-severin2-768x644.jpg" />
+    <Resource Include="Images\konkurs2-768x1151.jpg" />
+    <Resource Include="Images\KONKURS4-768x576.jpg" />
+    <Resource Include="Images\kopiec-kreta_11.jpg" />
+    <Resource Include="Images\kopytka-z-dyni-4-768x1151.jpg" />
+    <Resource Include="Images\kopytka-z-serem_8.jpg" />
+    <Resource Include="Images\kopytka-ze-szpinakiem_3-1-768x1151.jpg" />
+    <Resource Include="Images\kopytka1-768x1151.jpg" />
+    <Resource Include="Images\kopytka_13.jpg" />
+    <Resource Include="Images\kopytka_9.jpg" />
+    <Resource Include="Images\koreczki-768x1152.jpg" />
+    <Resource Include="Images\koreczki1-768x1024.jpg" />
+    <Resource Include="Images\koreczki2-1-768x1152.jpg" />
+    <Resource Include="Images\kotleciki2-1-768x1152.jpg" />
+    <Resource Include="Images\kotleciki7-768x1152.jpg" />
+    <Resource Include="Images\kotlet-szwajcarski_5.jpg" />
+    <Resource Include="Images\kotlety-siekane_4.jpg" />
+    <Resource Include="Images\kotlety-z-ciecierzycy.jpg" />
+    <Resource Include="Images\kotlety-ziemniaczane_15.jpg" />
+    <Resource Include="Images\kotlety-ziemniaczane_6.jpg" />
+    <Resource Include="Images\kotletysiekane2-768x1024.jpg" />
+    <Resource Include="Images\kotlet_2.jpg" />
+    <Resource Include="Images\krem-768x1151.jpg" />
+    <Resource Include="Images\krem-budyniowy_6.jpg" />
+    <Resource Include="Images\krem-czekoladowy_7.jpg" />
+    <Resource Include="Images\krem-grzybowy_1.jpg" />
+    <Resource Include="Images\krem-z-bialych-warzyw_6.jpg" />
+    <Resource Include="Images\krem-z-brokulow_7.jpg" />
+    <Resource Include="Images\krem-z-dyni_9.jpg" />
+    <Resource Include="Images\krem-z-kalafiora.jpg" />
+    <Resource Include="Images\krem-z-kalafiora_3.jpg" />
+    <Resource Include="Images\krem-z-mascarpone_1.jpg" />
+    <Resource Include="Images\krem-z-pomidorow-9-768x1151.jpg" />
+    <Resource Include="Images\krem-ze-szparagow4.jpg" />
+    <Resource Include="Images\krem1-768x1152.jpg" />
+    <Resource Include="Images\kremowka-768x1151.jpg" />
+    <Resource Include="Images\kremowka-768x1152.jpg" />
+    <Resource Include="Images\kremowka4-768x1152.jpg" />
+    <Resource Include="Images\kremserowy11-768x1152.jpg" />
+    <Resource Include="Images\kremszpinak-768x576.jpg" />
+    <Resource Include="Images\kremzbrokulow1-768x1152.jpg" />
+    <Resource Include="Images\kremzpieczarek41-768x576.jpg" />
+    <Resource Include="Images\krokiety-z-pieczarkami_9.jpg" />
+    <Resource Include="Images\krokiety_16.jpg" />
+    <Resource Include="Images\Kruche-ciasteczka-czekoladowe-768x576.jpg" />
+    <Resource Include="Images\kruche-ciasteczka_4-1.jpg" />
+    <Resource Include="Images\kruche-ciasto-z-malinami_11.jpg" />
+    <Resource Include="Images\krupnik2.jpg" />
+    <Resource Include="Images\kulebiak8-768x1151.jpg" />
+    <Resource Include="Images\kuleczki-ziemniaczane_6.jpg" />
+    <Resource Include="Images\kurczak-768x1151.jpg" />
+    <Resource Include="Images\kurczak-768x1152.jpg" />
+    <Resource Include="Images\kurczak-po-tajsku_5.jpg" />
+    <Resource Include="Images\kurczak-w-ciescie-kokosowym_7.jpg" />
+    <Resource Include="Images\kurczak-w-ciescie_6.jpg" />
+    <Resource Include="Images\kurczak-w-sosie-pieczarkowym_5-768x1151.jpg" />
+    <Resource Include="Images\kurczak-w-sosie_12.jpg" />
+    <Resource Include="Images\kurczak-w-sosie_7.jpg" />
+    <Resource Include="Images\kurczak-z-airfryer-13-768x1151.jpg" />
+    <Resource Include="Images\kurczak1-1-768x1151.jpg" />
+    <Resource Include="Images\kurczak1-1-768x1152.jpg" />
+    <Resource Include="Images\kurczak1-2-768x1152.jpg" />
+    <Resource Include="Images\kurczak1-768x1151.jpg" />
+    <Resource Include="Images\kurczak1-768x1152.jpg" />
+    <Resource Include="Images\kurczak2-1-768x1152.jpg" />
+    <Resource Include="Images\kurczak2-768x1151.jpg" />
+    <Resource Include="Images\kurczak2-768x1152.jpg" />
+    <Resource Include="Images\kurczak3-768x1151.jpg" />
+    <Resource Include="Images\kurczak4-768x1152.jpg" />
+    <Resource Include="Images\kurczak6-768x1152.jpg" />
+    <Resource Include="Images\kurczak7-768x1152.jpg" />
+    <Resource Include="Images\kurczak8-768x1152.jpg" />
+    <Resource Include="Images\kurczak9-768x1151.jpg" />
+    <Resource Include="Images\kurczakcurry2-768x1152.jpg" />
+    <Resource Include="Images\kurczakcurry5-768x1152.jpg" />
+    <Resource Include="Images\kurczaknadziewany-768x1152.jpg" />
+    <Resource Include="Images\kurczaknaparze1-768x1093.jpg" />
+    <Resource Include="Images\kurczakwchrupiacejpanierce3-768x1152.jpg" />
+    <Resource Include="Images\kurczakwmiodzie2-768x1152.jpg" />
+    <Resource Include="Images\kurczakwsezamie1-768x1152.jpg" />
+    <Resource Include="Images\kurczakwsosie4-768x1024.jpg" />
+    <Resource Include="Images\kurczakzananasem1-768x1152.jpg" />
+    <Resource Include="Images\kurkawodna1-768x1151.jpg" />
+    <Resource Include="Images\kutia-768x1151.jpg" />
+    <Resource Include="Images\lasagne_11.jpg" />
+    <Resource Include="Images\lasagne_12.jpg" />
+    <Resource Include="Images\lasagne_6.jpg" />
+    <Resource Include="Images\lava-cake-2.jpg" />
+    <Resource Include="Images\lazania1-768x1151.jpg" />
+    <Resource Include="Images\lazanki_12.jpg" />
+    <Resource Include="Images\leczo-z-cukinia_10.jpg" />
+    <Resource Include="Images\leczo1-768x1152.jpg" />
+    <Resource Include="Images\leczo2-768x1152.jpg" />
+    <Resource Include="Images\leczo_10.jpg" />
+    <Resource Include="Images\leczo_8.jpg" />
+    <Resource Include="Images\lemoniada1-768x576.jpg" />
+    <Resource Include="Images\lemoniada_10.jpg" />
+    <Resource Include="Images\lemoniada_9.jpg" />
+    <Resource Include="Images\leniwe_18.jpg" />
+    <Resource Include="Images\leniwe_5.jpg" />
+    <Resource Include="Images\lesnapychotka6-768x1152.jpg" />
+    <Resource Include="Images\lesniczowka-768x1152.jpg" />
+    <Resource Include="Images\lesny-mech_24.jpg" />
+    <Resource Include="Images\lesnymech_2.jpg" />
+    <Resource Include="Images\leszcz4-768x1151.jpg" />
+    <Resource Include="Images\lizaki-bezowe_3.jpg" />
+    <Resource Include="Images\lody01-768x576.jpg" />
+    <Resource Include="Images\losos-pieczony_2.jpg" />
+    <Resource Include="Images\losos-pod-migdalowa-pierzynka_3-768x1151.jpg" />
+    <Resource Include="Images\losos1-768x1151.jpg" />
+    <Resource Include="Images\losos3-768x1152.jpg" />
+    <Resource Include="Images\lososzsalsamango_5.jpg" />
+    <Resource Include="Images\losos_1.jpg" />
+    <Resource Include="Images\losos_3.jpg" />
+    <Resource Include="Images\lupa.png" />
+    <Resource Include="Images\majonez_4.jpg" />
+    <Resource Include="Images\makaron-768x1152.jpg" />
+    <Resource Include="Images\makaron-w-sosie-pomidorowym-5.jpg" />
+    <Resource Include="Images\makaron-z-brokulami_7.jpg" />
+    <Resource Include="Images\makaron-z-cukinia_10.jpg" />
+    <Resource Include="Images\makaron-z-kurczakiem-i-pieczarkami-10-768x1151.jpg" />
+    <Resource Include="Images\makaron-z-kurczakiem_4.jpg" />
+    <Resource Include="Images\makaron-z-kurkami_13.jpg" />
+    <Resource Include="Images\makaron-z-lososiem_6-1.jpg" />
+    <Resource Include="Images\makaron-z-pieczarkami_11.jpg" />
+    <Resource Include="Images\makaron-z-suszonymi-pomidorami_10.jpg" />
+    <Resource Include="Images\makaron-ze-szparagami7.jpg" />
+    <Resource Include="Images\makaron-ze-szpinakiem_7-768x1151.jpg" />
+    <Resource Include="Images\makaron-ze-szpinakiem_8.jpg" />
+    <Resource Include="Images\makaron1-768x1152.jpg" />
+    <Resource Include="Images\makaron2-768x1152.jpg" />
+    <Resource Include="Images\makaron6-768x1152.jpg" />
+    <Resource Include="Images\makaronpenne2-768x1151.jpg" />
+    <Resource Include="Images\makaronzkurczakiem1-768x1152.jpg" />
+    <Resource Include="Images\makaron_8.jpg" />
+    <Resource Include="Images\makowa-panienka1-768x1151.jpg" />
+    <Resource Include="Images\makowiec-japonski_14.jpg" />
+    <Resource Include="Images\makowiec1-768x1152.jpg" />
+    <Resource Include="Images\makowiec_1-768x1151.jpg" />
+    <Resource Include="Images\malinianki-13-768x1150.jpg" />
+    <Resource Include="Images\malinowa-chmurka_35-1.jpg" />
+    <Resource Include="Images\malinowa-ksiezniczka1.jpg" />
+    <Resource Include="Images\malinowetiramisu3-768x1024.jpg" />
+    <Resource Include="Images\malinowiec1-768x1152.jpg" />
+    <Resource Include="Images\malinowiec_9.jpg" />
+    <Resource Include="Images\mandarynkowiec7-768x1151.jpg" />
+    <Resource Include="Images\mangolassi2-768x1151.jpg" />
+    <Resource Include="Images\marchewka-z-groszkiem.jpg" />
+    <Resource Include="Images\marchewkowe3-768x1152.jpg" />
+    <Resource Include="Images\marynata-do-kurczaka_3.jpg" />
+    <Resource Include="Images\maslo-czosnkowe_2.jpg" />
+    <Resource Include="Images\mazurek-768x1024.jpg" />
+    <Resource Include="Images\mazurek-orzechowy_16.jpg" />
+    <Resource Include="Images\mazurek-z-kajmakiem_15.jpg" />
+    <Resource Include="Images\mazurek_13.jpg" />
+    <Resource Include="Images\mazurek_4-768x1151.jpg" />
+    <Resource Include="Images\milkshake1_2.jpg" />
+    <Resource Include="Images\mini-cheeseburgery_14-1.jpg" />
+    <Resource Include="Images\mini-hamburgery_2.jpg" />
+    <Resource Include="Images\mini-kremowki_11.jpg" />
+    <Resource Include="Images\mini-paczki-serowe_12.jpg" />
+    <Resource Include="Images\mini-paczki_2-768x1151.jpg" />
+    <Resource Include="Images\mini-paczki_7.jpg" />
+    <Resource Include="Images\mini-pankejki_1-768x1151.jpg" />
+    <Resource Include="Images\mini-pavlova_3-768x1151.jpg" />
+    <Resource Include="Images\mini-pavlova_5.jpg" />
+    <Resource Include="Images\mini-pavlova_6.jpg" />
+    <Resource Include="Images\mini-placuszki_3.jpg" />
+    <Resource Include="Images\mini-serniczki_7.jpg" />
+    <Resource Include="Images\minicalzone4-768x1152.jpg" />
+    <Resource Include="Images\minichalka-768x1152.jpg" />
+    <Resource Include="Images\miniomlecik-768x576.jpg" />
+    <Resource Include="Images\miodoweplacuszki2-768x1152.jpg" />
+    <Resource Include="Images\miodownik_24.jpg" />
+    <Resource Include="Images\mizeria_11.jpg" />
+    <Resource Include="Images\mnietorybka5-768x1024.jpg" />
+    <Resource Include="Images\mondo8-768x1152.jpg" />
+    <Resource Include="Images\monte2-768x1151.jpg" />
+    <Resource Include="Images\moskole-9-768x1151.jpg" />
+    <Resource Include="Images\mrozona4-768x1152.jpg" />
+    <Resource Include="Images\muffinki-768x1152.jpg" />
+    <Resource Include="Images\muffinki-cytrynowe_7.jpg" />
+    <Resource Include="Images\muffinki-czekoladowe.jpg" />
+    <Resource Include="Images\muffinki-czekoladowe_10.jpg" />
+    <Resource Include="Images\muffinki-marchewkowe_10.jpg" />
+    <Resource Include="Images\muffinki-waniliowe_7.jpg" />
+    <Resource Include="Images\muffinki-z-bananami-13-768x1151.jpg" />
+    <Resource Include="Images\muffinki-z-borowkami_5.jpg" />
+    <Resource Include="Images\muffinki-z-truskawkami_7.jpg" />
+    <Resource Include="Images\muffinki1-768x1152.jpg" />
+    <Resource Include="Images\muffinki2-768x1152.jpg" />
+    <Resource Include="Images\muffinki5-768x1152.jpg" />
+    <Resource Include="Images\muffinki6-768x1152.jpg" />
+    <Resource Include="Images\muffinki_12.jpg" />
+    <Resource Include="Images\muffinki_5.jpg" />
+    <Resource Include="Images\muffinki_9-1.jpg" />
+    <Resource Include="Images\muffiny-jajeczne_7.jpg" />
+    <Resource Include="Images\muffiny-jogurtowe_14.jpg" />
+    <Resource Include="Images\muffiny5-768x1152.jpg" />
+    <Resource Include="Images\muffiny8-768x1152.jpg" />
+    <Resource Include="Images\muffinyjogurtowe4-768x576.jpg" />
+    <Resource Include="Images\muffinyserowe3-768x1024.jpg" />
+    <Resource Include="Images\murzynek2-768x1152.jpg" />
+    <Resource Include="Images\murzynekcytrynowy-768x961.jpg" />
+    <Resource Include="Images\musjaglany2-768x1152.jpg" />
+    <Resource Include="Images\musli6.jpg" />
+    <Resource Include="Images\muszle-faszerowane_9-768x1151.jpg" />
+    <Resource Include="Images\muszlemakaronowe2-768x1151.jpg" />
+    <Resource Include="Images\naan11.jpg" />
+    <Resource Include="Images\nachosy4-768x576.jpg" />
+    <Resource Include="Images\nalesniki-768x1151.jpg" />
+    <Resource Include="Images\nalesniki-768x1152.jpg" />
+    <Resource Include="Images\nalesniki-amerykanskie_2.jpg" />
+    <Resource Include="Images\nalesniki-bez-jajek_1.jpg" />
+    <Resource Include="Images\nalesniki-czekoladowe_9.jpg" />
+    <Resource Include="Images\nalesniki-gyros_8.jpg" />
+    <Resource Include="Images\nalesniki-oreo_10-768x1151.jpg" />
+    <Resource Include="Images\nalesniki-ruskie_7.jpg" />
+    <Resource Include="Images\nalesniki-z-bananem_2.jpg" />
+    <Resource Include="Images\nalesniki-z-borowkami_10.jpg" />
+    <Resource Include="Images\nalesniki-z-jablkami_8.jpg" />
+    <Resource Include="Images\nalesniki-z-pieczarkami_14.jpg" />
+    <Resource Include="Images\nalesniki-z-serem_1.jpg" />
+    <Resource Include="Images\nalesniki-z-serem_17.jpg" />
+    <Resource Include="Images\nalesniki-ze-szpinakiem_6.jpg" />
+    <Resource Include="Images\nalesniki.jpg" />
+    <Resource Include="Images\nalesniki1-1-768x1152.jpg" />
+    <Resource Include="Images\nalesniki1-2-768x1151.jpg" />
+    <Resource Include="Images\nalesniki1-768x1151.jpg" />
+    <Resource Include="Images\nalesniki1-768x1152.jpg" />
+    <Resource Include="Images\nalesniki12-768x1152.jpg" />
+    <Resource Include="Images\nalesniki2-1-768x1151.jpg" />
+    <Resource Include="Images\nalesniki2-768x1151.jpg" />
+    <Resource Include="Images\nalesniki2-768x576.jpg" />
+    <Resource Include="Images\nalesniki3-768x1151.jpg" />
+    <Resource Include="Images\nalesniki3-768x1152.jpg" />
+    <Resource Include="Images\nalesniki8-1-768x1152.jpg" />
+    <Resource Include="Images\nalesnikikinderbueno_8.jpg" />
+    <Resource Include="Images\nalesnikirafaello2-768x1152.jpg" />
+    <Resource Include="Images\nalesnikizeszpinakiem_2.jpg" />
+    <Resource Include="Images\nalesniki_13.jpg" />
+    <Resource Include="Images\nalesniki_3.jpg" />
+    <Resource Include="Images\nalesniki_5.jpg" />
+    <Resource Include="Images\nalesniki_6.jpg" />
+    <Resource Include="Images\nalesniki_8.jpg" />
+    <Resource Include="Images\nasionachia1-768x1024.jpg" />
+    <Resource Include="Images\niespodzianka-768x1152.jpg" />
+    <Resource Include="Images\nolio_16.jpg" />
+    <Resource Include="Images\novocaina8-768x1152.jpg" />
+    <Resource Include="Images\nuggetsy2-768x1151.jpg" />
+    <Resource Include="Images\nutella-ze-sliwek_9.jpg" />
+    <Resource Include="Images\nutellowagwiazda7-768x1024.jpg" />
+    <Resource Include="Images\odrywane-buleczki_11.jpg" />
+    <Resource Include="Images\odrywanedrozdzowki1-768x1152.jpg" />
+    <Resource Include="Images\odrywanychlebek1-768x1152.jpg" />
+    <Resource Include="Images\odrywanychlebek_2.jpg" />
+    <Resource Include="Images\ogorki-kiszone_1.jpg" />
+    <Resource Include="Images\ogorki-konserwowe_4.jpg" />
+    <Resource Include="Images\ogorki-z-curry_3.jpg" />
+    <Resource Include="Images\ogorki-_11.jpg" />
+    <Resource Include="Images\omlet-2-768x1152.jpg" />
+    <Resource Include="Images\omlet-768x1152.jpg" />
+    <Resource Include="Images\omlet-cesarski_7-768x1151.jpg" />
+    <Resource Include="Images\omlet-na-slodko8.jpg" />
+    <Resource Include="Images\omlet-z-warzywami_9.jpg" />
+    <Resource Include="Images\omlet1-768x1151.jpg" />
+    <Resource Include="Images\omlet1-768x1152.jpg" />
+    <Resource Include="Images\omlet2-1-768x1152.jpg" />
+    <Resource Include="Images\omlet2-768x1152.jpg" />
+    <Resource Include="Images\omlet3-768x1151.jpg" />
+    <Resource Include="Images\omlet3.jpg" />
+    <Resource Include="Images\omlet5-768x1024.jpg" />
+    <Resource Include="Images\omlet6-768x512.jpg" />
+    <Resource Include="Images\omletbiszkoptowy.jpg" />
+    <Resource Include="Images\omletowywrap5-768x576.jpg" />
+    <Resource Include="Images\omletpizzowy6-768x576.jpg" />
+    <Resource Include="Images\omletwypasiony6-scaled-1-768x1024.jpg" />
+    <Resource Include="Images\omletzpapryka-768x576.jpg" />
+    <Resource Include="Images\omlet_5.jpg" />
+    <Resource Include="Images\oponki1-768x1152.jpg" />
+    <Resource Include="Images\oponki_13.jpg" />
+    <Resource Include="Images\orzechowiec_2-768x1151.jpg" />
+    <Resource Include="Images\owoce-pod-kruszonka9.jpg" />
+    <Resource Include="Images\Owocowy-torcik1-768x576.jpg" />
+    <Resource Include="Images\owsianka-1-768x1152.jpg" />
+    <Resource Include="Images\owsianka-768x1151.jpg" />
+    <Resource Include="Images\owsianka-na-mleku_2.jpg" />
+    <Resource Include="Images\owsianka3-768x1152.jpg" />
+    <Resource Include="Images\owsianka_3.jpg" />
+    <Resource Include="Images\paczki-1-768x1151.jpg" />
+    <Resource Include="Images\paczki-domowe_3-1.jpg" />
+    <Resource Include="Images\paczki-pieczone_5.jpg" />
+    <Resource Include="Images\paczki-serowe_13.jpg" />
+    <Resource Include="Images\paczki-serowe_9.jpg" />
+    <Resource Include="Images\paczki.jpg" />
+    <Resource Include="Images\paczki1-768x1152.jpg" />
+    <Resource Include="Images\paczki3-768x1151.jpg" />
+    <Resource Include="Images\paczki4-768x1151.jpg" />
+    <Resource Include="Images\paczkizmarmolada-768x1152.jpg" />
+    <Resource Include="Images\paczkizziemniakami3-768x1152.jpg" />
+    <Resource Include="Images\paczki_19.jpg" />
+    <Resource Include="Images\pad-thai_9.jpg" />
+    <Resource Include="Images\padthai-768x1151.jpg" />
+    <Resource Include="Images\paluchy-768x1151.jpg" />
+    <Resource Include="Images\paluchy-pizzowe_7.jpg" />
+    <Resource Include="Images\paluchyserowe3-768x1152.jpg" />
+    <Resource Include="Images\paluszkiziemniaczane_7.jpg" />
+    <Resource Include="Images\pancakes-768x1024.jpg" />
+    <Resource Include="Images\pancakes-z-borowkami-768x1151.jpg" />
+    <Resource Include="Images\pani-walewska-bez-pieczenia_16.jpg" />
+    <Resource Include="Images\pani-walewska-_22.jpg" />
+    <Resource Include="Images\pankejki_7.jpg" />
+    <Resource Include="Images\panna-cotta_11.jpg" />
+    <Resource Include="Images\pannacotta3-768x1152.jpg" />
+    <Resource Include="Images\pannacotta6-768x1024.jpg" />
+    <Resource Include="Images\pannacotta_2-2.jpg" />
+    <Resource Include="Images\pannacotta_5.jpg" />
+    <Resource Include="Images\parapetowkaa_2.jpg" />
+    <Resource Include="Images\parowki-w-cisscie-francuskim_6.jpg" />
+    <Resource Include="Images\parowki4-1-768x1151.jpg" />
+    <Resource Include="Images\pasta-jajeczna_3.jpg" />
+    <Resource Include="Images\pasta-jajeczna_8.jpg" />
+    <Resource Include="Images\pasta-z-makreli_12-1.jpg" />
+    <Resource Include="Images\pasta-z-zielonych-oliwek_3.jpg" />
+    <Resource Include="Images\Pasty-na-kanapki-min-768x1151.jpg" />
+    <Resource Include="Images\paszteciki-z-pieczarkami_12.jpg" />
+    <Resource Include="Images\paszteciki4-768x1151.jpg" />
+    <Resource Include="Images\pasztecikii1-768x1048.jpg" />
+    <Resource Include="Images\paszteciki_15.jpg" />
+    <Resource Include="Images\paszteciki_18-1.jpg" />
+    <Resource Include="Images\pasztet-1.jpg" />
+    <Resource Include="Images\pasztet-drobiowy_7.jpg" />
+    <Resource Include="Images\pasztet-z-cukinii_8.jpg" />
+    <Resource Include="Images\pasztet2-1-768x1151.jpg" />
+    <Resource Include="Images\pasztet_7.jpg" />
+    <Resource Include="Images\pasztet_8.jpg" />
+    <Resource Include="Images\penne3-768x1152.jpg" />
+    <Resource Include="Images\pesto3.jpg" />
+    <Resource Include="Images\pesto_12.jpg" />
+    <Resource Include="Images\pide1-2-768x1151.jpg" />
+    <Resource Include="Images\pieczarki5-768x1152.jpg" />
+    <Resource Include="Images\pieczona-owsianka_12.jpg" />
+    <Resource Include="Images\pieczone-owsianka-sernikobrownie-6-768x1151.jpg" />
+    <Resource Include="Images\pieczone-udka-z-kurczaka-5-768x1151.jpg" />
+    <Resource Include="Images\pieczone-udka_3.jpg" />
+    <Resource Include="Images\pieczonepierogi-768x1152.jpg" />
+    <Resource Include="Images\pieczony-kalafior_11.jpg" />
+    <Resource Include="Images\pieguski_11.jpg" />
+    <Resource Include="Images\pierniczki-swiateczne-_18.jpg" />
+    <Resource Include="Images\pierniczki.jpg" />
+    <Resource Include="Images\pierniczki3-768x1151.jpg" />
+    <Resource Include="Images\pierniczki31-768x1152.jpg" />
+    <Resource Include="Images\pierniczki5-768x1152.jpg" />
+    <Resource Include="Images\pierniczki_1-768x1151.jpg" />
+    <Resource Include="Images\pierniczki_2.jpg" />
+    <Resource Include="Images\pierniczki_30.jpg" />
+    <Resource Include="Images\piernik-swiateczny_18.jpg" />
+    <Resource Include="Images\piernik-z-powidlami_19.jpg" />
+    <Resource Include="Images\piernik-z-powidlami_5.jpg" />
+    <Resource Include="Images\piernik11-768x576.jpg" />
+    <Resource Include="Images\piernikowe-ciasteczka_2.jpg" />
+    <Resource Include="Images\piernikowiec-kopiec-3-768x1151.jpg" />
+    <Resource Include="Images\piernik_11-2.jpg" />
+    <Resource Include="Images\piernik_6-768x1151.jpg" />
+    <Resource Include="Images\piernik_7.jpg" />
+    <Resource Include="Images\pierogi-ruskie_7.jpg" />
+    <Resource Include="Images\pierogi-z-borowkami_3.jpg" />
+    <Resource Include="Images\pierogi-z-jagodami_2.jpg" />
+    <Resource Include="Images\pierogi6-768x1151.jpg" />
+    <Resource Include="Images\pinsa_6.jpg" />
+    <Resource Include="Images\pischinger5-768x1152.jpg" />
+    <Resource Include="Images\pita12.jpg" />
+    <Resource Include="Images\pizza-4-sery_6.jpg" />
+    <Resource Include="Images\pizza-768x1152.jpg" />
+    <Resource Include="Images\pizza-domowa_9.jpg" />
+    <Resource Include="Images\pizza-margherita_6.jpg" />
+    <Resource Include="Images\pizza-na-grubym-ciescie_15.jpg" />
+    <Resource Include="Images\pizza-z-grilla_4.jpg" />
+    <Resource Include="Images\pizza-z-kurkami_6.jpg" />
+    <Resource Include="Images\pizza-z-patelni_3-768x1151.jpg" />
+    <Resource Include="Images\pizza-ze-szparagami_10.jpg" />
+    <Resource Include="Images\pizza1-768x1152.jpg" />
+    <Resource Include="Images\pizza11-768x1152.jpg" />
+    <Resource Include="Images\pizza2-768x1152.jpg" />
+    <Resource Include="Images\pizza31-768x1024.jpg" />
+    <Resource Include="Images\pizza5-768x1151.jpg" />
+    <Resource Include="Images\pizza6-768x1065.jpg" />
+    <Resource Include="Images\pizza7-768x1151.jpg" />
+    <Resource Include="Images\pizzadomowa-768x1151.jpg" />
+    <Resource Include="Images\pizzagrillowa-768x1022.jpg" />
+    <Resource Include="Images\pizzagyros5-768x1152.jpg" />
+    <Resource Include="Images\pizzahawajska2-768x1152.jpg" />
+    <Resource Include="Images\pizzazeszparagami_6.jpg" />
+    <Resource Include="Images\pizzazkalafiora6-768x1152.jpg" />
+    <Resource Include="Images\pizzazkalafiora_9-1.jpg" />
+    <Resource Include="Images\pizzazserowymiboczkami.jpg" />
+    <Resource Include="Images\pizzerinki_11.jpg" />
+    <Resource Include="Images\pizzerinki_2-768x1151.jpg" />
+    <Resource Include="Images\placek-z-rabarbarem_26.jpg" />
+    <Resource Include="Images\placek-ze-sliwkami-4-768x1151.jpg" />
+    <Resource Include="Images\placekpowegiersku1-768x1151.jpg" />
+    <Resource Include="Images\placek_12.jpg" />
+    <Resource Include="Images\placki-bananowe_6.jpg" />
+    <Resource Include="Images\placki-z-dyni-14-768x1151.jpg" />
+    <Resource Include="Images\placki-z-dyni_10.jpg" />
+    <Resource Include="Images\placki-z-jablkami_1.jpg" />
+    <Resource Include="Images\placki-ziemniaczane-_6.jpg" />
+    <Resource Include="Images\placki-ziemniaczane.jpg" />
+    <Resource Include="Images\placki.jpg" />
+    <Resource Include="Images\plackiziemniaczane_2.jpg" />
+    <Resource Include="Images\placuszki-768x1152.jpg" />
+    <Resource Include="Images\placuszki-czekoladowe_2.jpg" />
+    <Resource Include="Images\placuszki-z-cukinii-i-marchewki-4-768x1151.jpg" />
+    <Resource Include="Images\placuszki-z-cukinii_9.jpg" />
+    <Resource Include="Images\placuszki-z-czekolada.jpg" />
+    <Resource Include="Images\placuszki1-768x1152.jpg" />
+    <Resource Include="Images\placuszki2-768x1024.jpg" />
+    <Resource Include="Images\placuszki2-768x1151.jpg" />
+    <Resource Include="Images\placuszki3-768x1151.jpg" />
+    <Resource Include="Images\placuszki3-768x1152.jpg" />
+    <Resource Include="Images\placuszki4-768x1151.jpg" />
+    <Resource Include="Images\placuszki4-768x1152.jpg" />
+    <Resource Include="Images\placuszkijaglane4-768x1024.jpg" />
+    <Resource Include="Images\placuszkiowsiane_2.jpg" />
+    <Resource Include="Images\placuszki_5-1.jpg" />
+    <Resource Include="Images\placuszki_6.jpg" />
+    <Resource Include="Images\placuszki_9.jpg" />
+    <Resource Include="Images\plesniak4-768x1151.jpg" />
+    <Resource Include="Images\poduszkowiec2-768x1152.jpg" />
+    <Resource Include="Images\poledwiczki-w-sosie-grzybowym_16-768x1151.jpg" />
+    <Resource Include="Images\poledwiczki-w-sosie_9.jpg" />
+    <Resource Include="Images\poledwiczki6-768x1152.jpg" />
+    <Resource Include="Images\poledwiczki_10.jpg" />
+    <Resource Include="Images\poledwiczki_14.jpg" />
+    <Resource Include="Images\polewa-czekoladowa_4.jpg" />
+    <Resource Include="Images\polewiczki-w-sosie_6.jpg" />
+    <Resource Include="Images\pomidorowa-768x1152.jpg" />
+    <Resource Include="Images\pomidorowa1-768x1152.jpg" />
+    <Resource Include="Images\pomidory-768x1151.jpg" />
+    <Resource Include="Images\Pomysl-na-sniadanie-min-768x1151.jpg" />
+    <Resource Include="Images\popekane-ciasteczka-_13.jpg" />
+    <Resource Include="Images\popekaneciasteczka6-768x1024.jpg" />
+    <Resource Include="Images\potrawka-z-kurczakiem_6-1.jpg" />
+    <Resource Include="Images\powidla_7.jpg" />
+    <Resource Include="Images\prosteciasto-768x1152.jpg" />
+    <Resource Include="Images\proziaki2-768x1152.jpg" />
+    <Resource Include="Images\proziaki_8.jpg" />
+    <Resource Include="Images\proziak_14.jpg" />
+    <Resource Include="Images\przekaska6-768x1152.jpg" />
+    <Resource Include="Images\przekaskanakrakersach2-768x1152.jpg" />
+    <Resource Include="Images\przekaski-imprezowe_2-768x1151.jpg" />
+    <Resource Include="Images\przekaski-z-ciasta-francuskiego-1.jpg" />
+    <Resource Include="Images\przekaski-z-ciasta-francuskiego_11-768x1151.jpg" />
+    <Resource Include="Images\przekaski-z-ciasta-francuskiego_16-768x1151.jpg" />
+    <Resource Include="Images\przekaski-z-ciasta-francuskiego_7-768x1151.jpg" />
+    <Resource Include="Images\przepisy-na-grilla_1.jpg" />
+    <Resource Include="Images\przepisy-na-grilla_5.jpg" />
+    <Resource Include="Images\Przepisy-na-nalesniki-min-768x1151.jpg" />
+    <Resource Include="Images\przyprawa-do-piernika-768x1151.jpg" />
+    <Resource Include="Images\pstrag-z-grilla_15.jpg" />
+    <Resource Include="Images\pstrag4-768x1152.jpg" />
+    <Resource Include="Images\ptysie.jpg" />
+    <Resource Include="Images\ptysie7-768x1152.jpg" />
+    <Resource Include="Images\pulpeciki-rybne_6.jpg" />
+    <Resource Include="Images\pulpeciki-w-sosie-koperkowym-13-768x1151.jpg" />
+    <Resource Include="Images\pulpeciki-w-sosie-pomidorowym-6-768x1151.jpg" />
+    <Resource Include="Images\pulpeciki4-768x1152.jpg" />
+    <Resource Include="Images\pulpeciki_2.jpg" />
+    <Resource Include="Images\puszysty-sernik_2.jpg" />
+    <Resource Include="Images\quasedilla_4.jpg" />
+    <Resource Include="Images\racuchy-drozdzowe-11-768x1150.jpg" />
+    <Resource Include="Images\racuchy-drozdzowe-z-jablkami_2.jpg" />
+    <Resource Include="Images\racuchy-na-maslance-6-768x1151.jpg" />
+    <Resource Include="Images\racuchy-z-jablkami-1-768x1151.jpg" />
+    <Resource Include="Images\racuchy-z-jablkami_12.jpg" />
+    <Resource Include="Images\racuchy-z-truskawkami_5.jpg" />
+    <Resource Include="Images\racuchy-z-twarogiem_4.jpg" />
+    <Resource Include="Images\racuchy2-768x1151.jpg" />
+    <Resource Include="Images\racuchy_10.jpg" />
+    <Resource Include="Images\racuszki2-768x1024.jpg" />
+    <Resource Include="Images\racuszki2-768x1152.jpg" />
+    <Resource Include="Images\rafaello_13.jpg" />
+    <Resource Include="Images\ravioli1-768x1152.jpg" />
+    <Resource Include="Images\recenzja-768x1151.jpg" />
+    <Resource Include="Images\recenzja2-768x1152.jpg" />
+    <Resource Include="Images\recenzja22-768x1152.jpg" />
+    <Resource Include="Images\reniferki1-768x1152.jpg" />
+    <Resource Include="Images\restauracja-768x1151.jpg" />
+    <Resource Include="Images\risotto3-768x1024.jpg" />
+    <Resource Include="Images\risotto_9.jpg" />
+    <Resource Include="Images\rogale-swietomarcinskie_2-1.jpg" />
+    <Resource Include="Images\rogale_2.jpg" />
+    <Resource Include="Images\rogaliki-768x1152.jpg" />
+    <Resource Include="Images\rogaliki-drozdzowe_12.jpg" />
+    <Resource Include="Images\rogaliki-grzebyki_6.jpg" />
+    <Resource Include="Images\rogaliki-kruche_10.jpg" />
+    <Resource Include="Images\rogaliki-krucho-drozdzowe-1.jpg" />
+    <Resource Include="Images\rogaliki-pizzowe-7-768x1151.jpg" />
+    <Resource Include="Images\rogaliki-z-czekolada_9.jpg" />
+    <Resource Include="Images\rogaliki-z-marmolada_10.jpg" />
+    <Resource Include="Images\rogaliki1-768x1152.jpg" />
+    <Resource Include="Images\rogaliki2-768x1152.jpg" />
+    <Resource Include="Images\rogaliki4-768x512.jpg" />
+    <Resource Include="Images\rogaliki7-768x1152.jpg" />
+    <Resource Include="Images\rogaliki8-768x1024.jpg" />
+    <Resource Include="Images\rogaliki_9-768x1151.jpg" />
+    <Resource Include="Images\rolaadki2-1-768x1152.jpg" />
+    <Resource Include="Images\rolada-jablkowa_10.jpg" />
+    <Resource Include="Images\rolada-szpinakowa_16.jpg" />
+    <Resource Include="Images\Rolada-truskawkowa1-768x576.jpg" />
+    <Resource Include="Images\rolada17.jpg" />
+    <Resource Include="Images\rolada6-768x1102.jpg" />
+    <Resource Include="Images\rolada9-768x576.jpg" />
+    <Resource Include="Images\roladki-1-768x1152.jpg" />
+    <Resource Include="Images\roladki-768x1152.jpg" />
+    <Resource Include="Images\roladki-schabowe_12.jpg" />
+    <Resource Include="Images\roladki-z-kurczaka_10.jpg" />
+    <Resource Include="Images\roladki-z-szynki_9.jpg" />
+    <Resource Include="Images\roladki1-768x1151.jpg" />
+    <Resource Include="Images\roladki1-768x1152.jpg" />
+    <Resource Include="Images\rozki-1-768x1152.jpg" />
+    <Resource Include="Images\rozki6-1-768x1152.jpg" />
+    <Resource Include="Images\rozyczki4-768x1152.jpg" />
+    <Resource Include="Images\ruchance4-768x1151.jpg" />
+    <Resource Include="Images\rurki-768x1152.jpg" />
+    <Resource Include="Images\ryba-po-grecku_15.jpg" />
+    <Resource Include="Images\ryba-w-panierce_5.jpg" />
+    <Resource Include="Images\ryba1-768x1152.jpg" />
+    <Resource Include="Images\ryba3-768x1024.jpg" />
+    <Resource Include="Images\rybapogrecku1-768x1151.jpg" />
+    <Resource Include="Images\ryz-z-jablkami_3-1.jpg" />
+    <Resource Include="Images\ryz-z-kurczakiem_7.jpg" />
+    <Resource Include="Images\ryz-z-truskawkami_7.jpg" />
+    <Resource Include="Images\ryzowysernik1-768x1152.jpg" />
+    <Resource Include="Images\ryzzjablkami8-768x1024.jpg" />
+    <Resource Include="Images\sajgonki6-768x1152.jpg" />
+    <Resource Include="Images\salatka-1-768x1151.jpg" />
+    <Resource Include="Images\salatka-768x1151.jpg" />
+    <Resource Include="Images\salatka-768x1152.jpg" />
+    <Resource Include="Images\salatka-cezar_5.jpg" />
+    <Resource Include="Images\salatka-cezar_7-1.jpg" />
+    <Resource Include="Images\salatka-gyros.jpg" />
+    <Resource Include="Images\salatka-jarzynowa_10.jpg" />
+    <Resource Include="Images\salatka-makaronowa_11.jpg" />
+    <Resource Include="Images\salatka-meksykanska_4.jpg" />
+    <Resource Include="Images\salatka-na-grilla_3.jpg" />
+    <Resource Include="Images\salatka-na-krakersach_19.jpg" />
+    <Resource Include="Images\salatka-owocowa_7.jpg" />
+    <Resource Include="Images\salatka-sledziowa_5.jpg" />
+    <Resource Include="Images\salatka-wielkanocna_15.jpg" />
+    <Resource Include="Images\salatka-z-ananasem_8.jpg" />
+    <Resource Include="Images\salatka-z-awokado6.jpg" />
+    <Resource Include="Images\salatka-z-bobem_6.jpg" />
+    <Resource Include="Images\salatka-z-brokulami9.jpg" />
+    <Resource Include="Images\salatka-z-brokulami_2.jpg" />
+    <Resource Include="Images\salatka-z-brokulem.jpg" />
+    <Resource Include="Images\salatka-z-burakiem-7-768x1151.jpg" />
+    <Resource Include="Images\salatka-z-buratta_7.jpg" />
+    <Resource Include="Images\salatka-z-camembertem6.jpg" />
+    <Resource Include="Images\salatka-z-kalafiora_12.jpg" />
+    <Resource Include="Images\salatka-z-lososiem_1.jpg" />
+    <Resource Include="Images\salatka-z-makaronem-ryzowym_2-1.jpg" />
+    <Resource Include="Images\salatka-z-oscypkiem-_1.jpg" />
+    <Resource Include="Images\salatka-z-paluszkami-krabowymi_10.jpg" />
+    <Resource Include="Images\salatka-z-pieczarkami_14.jpg" />
+    <Resource Include="Images\salatka-z-selerem_3-768x1151.jpg" />
+    <Resource Include="Images\salatka-z-selerem_8.jpg" />
+    <Resource Include="Images\salatka-z-tortellini_10.jpg" />
+    <Resource Include="Images\salatka-z-tortellini_5.jpg" />
+    <Resource Include="Images\salatka-z-tunczykiem_2.jpg" />
+    <Resource Include="Images\salatka-z-wedzonym-kurczakiem-6-768x1151.jpg" />
+    <Resource Include="Images\salatka-z-zupek-chinskich_10.jpg" />
+    <Resource Include="Images\salatka-ziemniaczana-_5.jpg" />
+    <Resource Include="Images\salatka1-1-768x1151.jpg" />
+    <Resource Include="Images\salatka1-768x1151.jpg" />
+    <Resource Include="Images\salatka1-768x1152.jpg" />
+    <Resource Include="Images\salatka2-1-768x1151.jpg" />
+    <Resource Include="Images\salatka2-768x1152.jpg" />
+    <Resource Include="Images\salatka3-1-768x1152.jpg" />
+    <Resource Include="Images\salatka3-768x1152.jpg" />
+    <Resource Include="Images\salatka4-768x1152.jpg" />
+    <Resource Include="Images\salatkazkurczakiem1-768x1024.jpg" />
+    <Resource Include="Images\salatkazporem-768x1151.jpg" />
+    <Resource Include="Images\salatkazselerem1-768x1024.jpg" />
+    <Resource Include="Images\salatka_1.jpg" />
+    <Resource Include="Images\salatka_15.jpg" />
+    <Resource Include="Images\salatka_2.jpg" />
+    <Resource Include="Images\salatka_7.jpg" />
+    <Resource Include="Images\salatki-na-impreze-768x1151.jpg" />
+    <Resource Include="Images\salatki-na-swieta-1.jpg" />
+    <Resource Include="Images\salatki-na-wielkanoc-1.jpg" />
+    <Resource Include="Images\satay_12.jpg" />
+    <Resource Include="Images\schab-768x1151.jpg" />
+    <Resource Include="Images\schab-768x1152.jpg" />
+    <Resource Include="Images\schab-duszony_6.jpg" />
+    <Resource Include="Images\schab-pieczony_3-768x1151.jpg" />
+    <Resource Include="Images\schab-w-sosie-koperkowym_6.jpg" />
+    <Resource Include="Images\schab-w-sosie-wlasnym_5.jpg" />
+    <Resource Include="Images\schab-w-sosie_6.jpg" />
+    <Resource Include="Images\schab1-1-768x1151.jpg" />
+    <Resource Include="Images\schab1-768x1152.jpg" />
+    <Resource Include="Images\schabowe-w-sosie.jpg" />
+    <Resource Include="Images\serniczek.jpg" />
+    <Resource Include="Images\serniczki-768x1151.jpg" />
+    <Resource Include="Images\serniczki3-768x1152.jpg" />
+    <Resource Include="Images\serniczki6-768x1152.jpg" />
+    <Resource Include="Images\serniczkizpatelni-768x1152.jpg" />
+    <Resource Include="Images\serniczki_5.jpg" />
+    <Resource Include="Images\sernik-baskijski-11-768x1151.jpg" />
+    <Resource Include="Images\sernik-czekoladowy_2-1.jpg" />
+    <Resource Include="Images\sernik-dyniowy_14.jpg" />
+    <Resource Include="Images\sernik-gotowany22.jpg" />
+    <Resource Include="Images\sernik-gotowany_20.jpg" />
+    <Resource Include="Images\sernik-izaura_21.jpg" />
+    <Resource Include="Images\sernik-kinder-bueno_2.jpg" />
+    <Resource Include="Images\sernik-krakowski_1.jpg" />
+    <Resource Include="Images\sernik-krolewski_18.jpg" />
+    <Resource Include="Images\sernik-krowkowy_1.jpg" />
+    <Resource Include="Images\sernik-krowkowy_4.jpg" />
+    <Resource Include="Images\sernik-lotus_7.jpg" />
+    <Resource Include="Images\sernik-na-zimno_2-1.jpg" />
+    <Resource Include="Images\sernik-na-zimno_7.jpg" />
+    <Resource Include="Images\sernik-na-zimno_9.jpg" />
+    <Resource Include="Images\sernik-nowojorski.jpg" />
+    <Resource Include="Images\sernik-oreo1.jpg" />
+    <Resource Include="Images\sernik-oreo_5-1.jpg" />
+    <Resource Include="Images\sernik-piernikowy_16.jpg" />
+    <Resource Include="Images\sernik-pistacjowy_25.jpg" />
+    <Resource Include="Images\sernik-puszysty_2.jpg" />
+    <Resource Include="Images\sernik-rafaello_2.jpg" />
+    <Resource Include="Images\sernik-swiateczny_11.jpg" />
+    <Resource Include="Images\sernik-tiramisu_5.jpg" />
+    <Resource Include="Images\sernik-waniliowy3.jpg" />
+    <Resource Include="Images\sernik-wiedenski_1.jpg" />
+    <Resource Include="Images\sernik-wielkanocny_10.jpg" />
+    <Resource Include="Images\sernik-z-biala-czekolada.jpg" />
+    <Resource Include="Images\sernik-z-borowkami_3.jpg" />
+    <Resource Include="Images\sernik-z-borowkami_9.jpg" />
+    <Resource Include="Images\sernik-z-brzoskwiniami_1-1.jpg" />
+    <Resource Include="Images\sernik-z-jablkami-10-768x1151.jpg" />
+    <Resource Include="Images\sernik-z-jagodami11.jpg" />
+    <Resource Include="Images\sernik-z-jagodami_9-1.jpg" />
+    <Resource Include="Images\sernik-z-krowka_2.jpg" />
+    <Resource Include="Images\sernik-z-malinami-768x1150.jpg" />
+    <Resource Include="Images\sernik-z-mascarpone_15.jpg" />
+    <Resource Include="Images\sernik-z-mlekiem-w-proszku_1.jpg" />
+    <Resource Include="Images\sernik-z-rosa_24.jpg" />
+    <Resource Include="Images\sernik-z-truskawkami_4.jpg" />
+    <Resource Include="Images\sernik-zebra_11.jpg" />
+    <Resource Include="Images\sernik13.jpg" />
+    <Resource Include="Images\sernik2-1-768x1152.jpg" />
+    <Resource Include="Images\sernik2-768x1152.jpg" />
+    <Resource Include="Images\sernik3-768x1152.jpg" />
+    <Resource Include="Images\sernik6-768x1152.jpg" />
+    <Resource Include="Images\sernik61-768x1152.jpg" />
+    <Resource Include="Images\sernik7-768x1152.jpg" />
+    <Resource Include="Images\sernik8-768x1152.jpg" />
+    <Resource Include="Images\sernikmatcha2-768x1152.jpg" />
+    <Resource Include="Images\serniknazimno.jpg" />
+    <Resource Include="Images\sernikobrownie2.jpg" />
+    <Resource Include="Images\sernikoreo7-768x1024.jpg" />
+    <Resource Include="Images\sernikpuchaty7-768x1152.jpg" />
+    <Resource Include="Images\serniksnickers2-768x1152.jpg" />
+    <Resource Include="Images\serniksnickers5-768x1024.jpg" />
+    <Resource Include="Images\sernikzrosa3-768x1152.jpg" />
+    <Resource Include="Images\sernikztruskawkami-1.jpg" />
+    <Resource Include="Images\sernikzzurawina8-768x1024.jpg" />
+    <Resource Include="Images\sernik_1-1.jpg" />
+    <Resource Include="Images\sernik_10.jpg" />
+    <Resource Include="Images\sernik_11.jpg" />
+    <Resource Include="Images\sernik_14-768x1151.jpg" />
+    <Resource Include="Images\sernik_2.jpg" />
+    <Resource Include="Images\sernik_6.jpg" />
+    <Resource Include="Images\seromakowiec_21.jpg" />
+    <Resource Include="Images\serowe1-768x1151.jpg" />
+    <Resource Include="Images\shakebananowy1-768x576.jpg" />
+    <Resource Include="Images\skyrnik-z-malinami-12-768x1151.jpg" />
+    <Resource Include="Images\sledzie-po-kaszubsku_7.jpg" />
+    <Resource Include="Images\sledzie-pod-pierzynka_2.jpg" />
+    <Resource Include="Images\sledzie-w-smietanie_1.jpg" />
+    <Resource Include="Images\sledzie-z-suszonymi-pomidorami_5.jpg" />
+    <Resource Include="Images\sledzie_2.jpg" />
+    <Resource Include="Images\slimaczki-z-ciasta-francuskiego_3-768x1151.jpg" />
+    <Resource Include="Images\slimaczki1-768x1152.jpg" />
+    <Resource Include="Images\slonecznikowiec-13-768x1151.jpg" />
+    <Resource Include="Images\slony7-768x1152.jpg" />
+    <Resource Include="Images\sniadanie6-768x1152.jpg" />
+    <Resource Include="Images\snickers_13.jpg" />
+    <Resource Include="Images\snieznypuch1-768x1151.jpg" />
+    <Resource Include="Images\snieznypuch1-768x1152.jpg" />
+    <Resource Include="Images\soczysty-schab_12.jpg" />
+    <Resource Include="Images\sokananasowy-768x1152.jpg" />
+    <Resource Include="Images\sorbet1-768x1152.jpg" />
+    <Resource Include="Images\sos-beszamelowy_4.jpg" />
+    <Resource Include="Images\sos-czosnkowy.jpg" />
+    <Resource Include="Images\sos-grzybowy_6.jpg" />
+    <Resource Include="Images\sos-pieczarkowy_1.jpg" />
+    <Resource Include="Images\sos-tzatziki_6.jpg" />
+    <Resource Include="Images\sos-z-kurek_7.jpg" />
+    <Resource Include="Images\spaghetti-bolognese_8.jpg" />
+    <Resource Include="Images\spaghetti2-768x1152.jpg" />
+    <Resource Include="Images\spaghetti3-768x1152.jpg" />
+    <Resource Include="Images\stripsy-z-kurczaka_4.jpg" />
+    <Resource Include="Images\strogonow_9.jpg" />
+    <Resource Include="Images\strucla_4.jpg" />
+    <Resource Include="Images\styropian7-768x1152.jpg" />
+    <Resource Include="Images\surowka-coleslaw_7.jpg" />
+    <Resource Include="Images\surowka-z-czerwonej-kapusty_2.jpg" />
+    <Resource Include="Images\surowka-z-kapusty_1-1-768x1151.jpg" />
+    <Resource Include="Images\surowka-z-marchewki_7.jpg" />
+    <Resource Include="Images\surowka-z-mlodej-kapusty_5.jpg" />
+    <Resource Include="Images\szakszuka_7.jpg" />
+    <Resource Include="Images\szarlotka-768x1152.jpg" />
+    <Resource Include="Images\szarlotka-kolewska-768x1151.jpg" />
+    <Resource Include="Images\szarlotka-krolewska_13-1.jpg" />
+    <Resource Include="Images\szarlotka-sypana-_11.jpg" />
+    <Resource Include="Images\szarlotka-tatrzanska_2.jpg" />
+    <Resource Include="Images\szarlotka-tutti-frutti_12.jpg" />
+    <Resource Include="Images\szarlotka-w-pucharku_13.jpg" />
+    <Resource Include="Images\szarlotka-z-budyniem.jpg" />
+    <Resource Include="Images\szarlotka1-768x1152.jpg" />
+    <Resource Include="Images\szarlotka11-768x1152.jpg" />
+    <Resource Include="Images\szarlotka31-768x1152.jpg" />
+    <Resource Include="Images\szarlotka4-768x1152.jpg" />
+    <Resource Include="Images\szarlotka7-768x1152.jpg" />
+    <Resource Include="Images\szarlotkaikawa1-768x1151.jpg" />
+    <Resource Include="Images\szarlotka_15.jpg" />
+    <Resource Include="Images\szarlotka_26.jpg" />
+    <Resource Include="Images\szarlotka_5.jpg" />
+    <Resource Include="Images\szarlotka_7.jpg" />
+    <Resource Include="Images\szarlotkowebabeczki1-768x1152.jpg" />
+    <Resource Include="Images\szaszlyki-warzywne_5.jpg" />
+    <Resource Include="Images\szaszlyki2-768x1152.jpg" />
+    <Resource Include="Images\szaszlykihawajskie2-768x1152.jpg" />
+    <Resource Include="Images\szaszlyki_11.jpg" />
+    <Resource Include="Images\szaszlyki_7.jpg" />
+    <Resource Include="Images\sznycelkizserem3-768x1024.jpg" />
+    <Resource Include="Images\sznycle2-768x1152.jpg" />
+    <Resource Include="Images\szparagi-na-grilla_6.jpg" />
+    <Resource Include="Images\szparagi1.jpg" />
+    <Resource Include="Images\szpinakowe-placuszki3-768x1152.jpg" />
+    <Resource Include="Images\Szybkie-ciasta-i-ciasteczka-768x1151.jpg" />
+    <Resource Include="Images\tagliatelle-768x1152.jpg" />
+    <Resource Include="Images\tagliatelle-al-ragu.jpg" />
+    <Resource Include="Images\tagliatelle-z-kurczakiem_12-2.jpg" />
+    <Resource Include="Images\tagliatelle2-768x1152.jpg" />
+    <Resource Include="Images\tajskie-szaszlyki_21.jpg" />
+    <Resource Include="Images\tajskie-szaszlyki_9.jpg" />
+    <Resource Include="Images\talarki-ziemniaczane_1-768x1151.jpg" />
+    <Resource Include="Images\tapenada_2.jpg" />
+    <Resource Include="Images\tarta-banoffee_10.jpg" />
+    <Resource Include="Images\tarta-czekoladowa_10.jpg" />
+    <Resource Include="Images\tarta-czekoladowa_12.jpg" />
+    <Resource Include="Images\tarta-kinder-bueno-10-768x1151.jpg" />
+    <Resource Include="Images\tarta-rustykalna_8.jpg" />
+    <Resource Include="Images\tarta-sernikowa-13-1.jpg" />
+    <Resource Include="Images\tarta-z-biala-czekolada_10.jpg" />
+    <Resource Include="Images\tarta-z-borowkami9.jpg" />
+    <Resource Include="Images\tarta-z-gruszkami_11.jpg" />
+    <Resource Include="Images\tarta-z-grzybami_13.jpg" />
+    <Resource Include="Images\tarta-z-jablkami-12-768x1151.jpg" />
+    <Resource Include="Images\tarta-z-jablkami_4.jpg" />
+    <Resource Include="Images\tarta-z-kurczakiem_17.jpg" />
+    <Resource Include="Images\tarta-z-kurczakiem_5-768x1150.jpg" />
+    <Resource Include="Images\tarta-z-malinami.jpg" />
+    <Resource Include="Images\tarta-z-truskawkami8.jpg" />
+    <Resource Include="Images\tarta-z-truskawkami_1.jpg" />
+    <Resource Include="Images\tarta-ze-sliwkami-i-beza-11-1-768x1151.jpg" />
+    <Resource Include="Images\tarta-ze-sliwkami_11-1.jpg" />
+    <Resource Include="Images\tarta14.jpg" />
+    <Resource Include="Images\tarta4-768x1151.jpg" />
+    <Resource Include="Images\tartaletki-768x1152.jpg" />
+    <Resource Include="Images\tartaletki.jpg" />
+    <Resource Include="Images\tartaletki3-768x1152.jpg" />
+    <Resource Include="Images\tartaletkinaslono5-768x1024.jpg" />
+    <Resource Include="Images\tartarafaello1-768x1151.jpg" />
+    <Resource Include="Images\tartazparowkami5-768x1152.jpg" />
+    <Resource Include="Images\tartaztruskawkami5-768x1152.jpg" />
+    <Resource Include="Images\tarta_2.jpg" />
+    <Resource Include="Images\tbilisuri4-768x1152.jpg" />
+    <Resource Include="Images\tiramisu-pistacjowe_12.jpg" />
+    <Resource Include="Images\tiramisu-_10.jpg" />
+    <Resource Include="Images\tiramisu3-768x1151.jpg" />
+    <Resource Include="Images\tiramisu71-768x1152.jpg" />
+    <Resource Include="Images\tiramisu_10.jpg" />
+    <Resource Include="Images\tiramisu_16.jpg" />
+    <Resource Include="Images\Tlusty-Czwartek-sprawdzone-przepisy-min-768x1151.jpg" />
+    <Resource Include="Images\torcik1-768x1152.jpg" />
+    <Resource Include="Images\torcik6-1-768x1151.jpg" />
+    <Resource Include="Images\torcik_21.jpg" />
+    <Resource Include="Images\tort-bez-pieczenia_13.jpg" />
+    <Resource Include="Images\tort-bezowy-daklas_5.jpg" />
+    <Resource Include="Images\tort-smietankowy_13.jpg" />
+    <Resource Include="Images\tort-z-truskawkami_1.jpg" />
+    <Resource Include="Images\tort2-768x1152.jpg" />
+    <Resource Include="Images\tortilla-9-768x1151.jpg" />
+    <Resource Include="Images\tortilla-na-omlecie_10.jpg" />
+    <Resource Include="Images\tortilla-z-kurczakiem_8.jpg" />
+    <Resource Include="Images\tortilla_10.jpg" />
+    <Resource Include="Images\tortilla_22.jpg" />
+    <Resource Include="Images\tortilla_3.jpg" />
+    <Resource Include="Images\tortmmsowy-768x1152.jpg" />
+    <Resource Include="Images\tort_21.jpg" />
+    <Resource Include="Images\tort_7.jpg" />
+    <Resource Include="Images\tost-francuski_4.jpg" />
+    <Resource Include="Images\tosty_9.jpg" />
+    <Resource Include="Images\trojkolorowa-768x1152.jpg" />
+    <Resource Include="Images\truskawkowa-chmurka_9.jpg" />
+    <Resource Include="Images\truskawkowapychota2-768x1152.jpg" />
+    <Resource Include="Images\twarozek_3.jpg" />
+    <Resource Include="Images\twix-768x1151.jpg" />
+    <Resource Include="Images\ucierane2-768x1152.jpg" />
+    <Resource Include="Images\udka-pieczone_4.jpg" />
+    <Resource Include="Images\udka-pieczone_7.jpg" />
+    <Resource Include="Images\udka-z-piekarnika_1.jpg" />
+    <Resource Include="Images\uszka7-768x1151.jpg" />
+    <Resource Include="Images\uszka_11.jpg" />
+    <Resource Include="Images\vegeburgery5-768x1152.jpg" />
+    <Resource Include="Images\wafle_11.jpg" />
+    <Resource Include="Images\whiskeyinjar6-768x1151.jpg" />
+    <Resource Include="Images\wielkanocnasalatka2-768x1152.jpg" />
+    <Resource Include="Images\wieniec2-768x1024.jpg" />
+    <Resource Include="Images\wieprzowina-po-chisnku_4.jpg" />
+    <Resource Include="Images\wolowina-po-burgundzku-13-768x1151.jpg" />
+    <Resource Include="Images\wrapy-z-kurczakiem_7.jpg" />
+    <Resource Include="Images\wroclaw1-768x1024.jpg" />
+    <Resource Include="Images\WYNIKI-768x512.jpg" />
+    <Resource Include="Images\xr3FZvSS6vRrPY3blFOQ_thumb_313.jpg" />
+    <Resource Include="Images\zakrecanedrozdzowki4-768x1151.jpg" />
+    <Resource Include="Images\zapiekana-bagietka_2-768x1151.jpg" />
+    <Resource Include="Images\zapiekana-tortilla_5.jpg" />
+    <Resource Include="Images\zapiekanazukinia_4.jpg" />
+    <Resource Include="Images\zapiekane-nalesniki_28.jpg" />
+    <Resource Include="Images\zapiekane2-768x1152.jpg" />
+    <Resource Include="Images\zapiekanenalesniki3-768x1152.jpg" />
+    <Resource Include="Images\zapiekaneschabowe3-768x1151.jpg" />
+    <Resource Include="Images\zapiekanka-768x432.png" />
+    <Resource Include="Images\zapiekanka-gyros_4-768x1151.jpg" />
+    <Resource Include="Images\zapiekanka-z-brokulami_9.jpg" />
+    <Resource Include="Images\zapiekanka-z-cukinii-przepis.jpg" />
+    <Resource Include="Images\zapiekanka-z-makaronem_11-768x1151.jpg" />
+    <Resource Include="Images\zapiekanka-z-makaronem_6.jpg" />
+    <Resource Include="Images\zapiekanka-ze-szpinakiem_12.jpg" />
+    <Resource Include="Images\zapiekanka-ziemniaczana_10.jpg" />
+    <Resource Include="Images\zapiekanka1-768x1151.jpg" />
+    <Resource Include="Images\zapiekanka11-768x1024.jpg" />
+    <Resource Include="Images\zapiekanka2-1-768x1152.jpg" />
+    <Resource Include="Images\zapiekanka2-768x1151.jpg" />
+    <Resource Include="Images\zapiekanka2-768x1152.jpg" />
+    <Resource Include="Images\zapiekanka5-768x1152.jpg" />
+    <Resource Include="Images\zapiekanka6-768x1152.jpg" />
+    <Resource Include="Images\zapiekanka_10.jpg" />
+    <Resource Include="Images\zapiekanka_5.jpg" />
+    <Resource Include="Images\zapiekanki_8.jpg" />
+    <Resource Include="Images\zapiekanygyros4-768x1078.jpg" />
+    <Resource Include="Images\zapiekanyryz4-768x1152.jpg" />
+    <Resource Include="Images\zapowsianka-768x1152.jpg" />
+    <Resource Include="Images\zawijana-pizza_13.jpg" />
+    <Resource Include="Images\zawijanapizza1-768x1151.jpg" />
+    <Resource Include="Images\zawijanapizza8-768x1152.jpg" />
+    <Resource Include="Images\zawijane-ciasto-francuskie_13.jpg" />
+    <Resource Include="Images\zawijanebuleczki3-768x1152.jpg" />
+    <Resource Include="Images\zawijaniec-makowy_9.jpg" />
+    <Resource Include="Images\zeberka-w-miodzie_4.jpg" />
+    <Resource Include="Images\zeberka-z-piekarnika2-768x1151.jpg" />
+    <Resource Include="Images\ziemniaki-768x1024.jpg" />
+    <Resource Include="Images\ziemniaki.jpg" />
+    <Resource Include="Images\ziemniaki2-768x1152.jpg" />
+    <Resource Include="Images\ziemniakizapiekane2-768x1152.jpg" />
+    <Resource Include="Images\zupa-czosnkowa_3.jpg" />
+    <Resource Include="Images\zupa-grzybowa-wigilijna_11.jpg" />
+    <Resource Include="Images\zupa-gulaszowa_1-1.jpg" />
+    <Resource Include="Images\zupa-kalafiorowa_1.jpg" />
+    <Resource Include="Images\zupa-koperkowa.jpg" />
+    <Resource Include="Images\zupa-krem-z-dyni_1.jpg" />
+    <Resource Include="Images\zupa-pieczarkowa_6-1.jpg" />
+    <Resource Include="Images\zupa-serowa_10.jpg" />
+    <Resource Include="Images\zupa-serowa_14.jpg" />
+    <Resource Include="Images\zupa-tajska-1.jpg" />
+    <Resource Include="Images\zupa-z-botwinki_4.jpg" />
+    <Resource Include="Images\zupa1-768x1152.jpg" />
+    <Resource Include="Images\zupa2-1-768x1152.jpg" />
+    <Resource Include="Images\zupa2-768x1151.jpg" />
+    <Resource Include="Images\zupa2-768x1152.jpg" />
+    <Resource Include="Images\zupamarchewkowa1-768x1024.jpg" />
+    <Resource Include="Images\zupapho1-768x1152.jpg" />
+    <Resource Include="Images\zupazkukurydzy51-768x1024.jpg" />
+    <Resource Include="Images\zurek_2-768x1151.jpg" />
+    <Resource Include="Images\zurek_9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Fonts\Cinzel-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images_mainView\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images_mainView\back_arrow.png" />
+    <Resource Include="Images_mainView\cooking_icon.png" />
+    <Resource Include="Images_mainView\favourite_icon.png" />
+    <Resource Include="Images_mainView\pdf_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images_mainView\ingredients_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images_mainView\unfavourite_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images_mainView\next_arrow.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ten projekt zawiera odwołania do pakietów NuGet, których nie ma na tym komputerze. Użyj przywracania pakietów NuGet, aby je pobrać. Aby uzyskać więcej informacji, zobacz http://go.microsoft.com/fwlink/?LinkID=322105. Brakujący plik: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.119.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>
